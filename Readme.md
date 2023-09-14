@@ -3,27 +3,24 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E2368)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to implement the Group Level Style feature in the TreeList
+# WinForms TreeList - Implement the Group Level Style feature
 
+The WinForms Data Grid allows you to specify custom styles for group rows and corresponding indents by handling the [GridView.GroupLevelStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.GroupLevelStyle) event. This example demonstrates how to implement this feature in the WinForms TreeList control.
 
-<p>In XtraGrid, it's possible to specify custom styles for group rows and corresponding indents by handling the <a href="http://documentation.devexpress.com/#WindowsForms/DevExpressXtraGridViewsGridGridView_GroupLevelStyletopic">GridView.GroupLevelStyle</a> event. In the TreeList, row indents are not divided groups. Therefore, it isn't a trivial task to implement the same feature in the TreeList. However, it's possible to obtain all information necessary to calculate bounds of group indents via the <a href="http://documentation.devexpress.com/#WindowsForms/DevExpressXtraTreeListTreeList_ViewInfotopic">TreeList.ViewInfo</a> property.</p><p>Basically, all that one needs to know in order to properly divide a node indent into groups is the width of the group indent. This value can be obtained via the TreeListViewInfo.RC.LevelWidth property. So, the group indent bounds can be easily calculated within the <a href="http://documentation.devexpress.com/#WindowsForms/DevExpressXtraTreeListTreeList_CustomDrawNodeIndenttopic">TreeList.CustomDrawNodeIndent</a> event handler.</p>
+![](https://raw.githubusercontent.com/DevExpress-Examples/how-to-implement-the-group-level-style-feature-in-the-treelist-e2368/18.1.3%2B/media/winforms-treelist-level-indents.png)
 
-```cs
-<newline/>
-Rectangle groupIndentRect = new Rectangle(e.Bounds.Right - viewInfo.RC.LevelWidth, e.Bounds.Y, viewInfo.RC.LevelWidth, e.Bounds.Height);<newline/>
+* Use the [TreeList.ViewInfo](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.ViewInfo) property to obtain information required to calculate bounds of group indents.
+* Use the `TreeListViewInfo.RC.LevelWidth` property to get the width of a group indent to properly divide the node indent into groups.
+* Handle the [TreeList.CustomDrawNodeIndent](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.CustomDrawNodeIndent) event to calculate group indent bounds.
 
+```csharp
+Rectangle groupIndentRect = new Rectangle(e.Bounds.Right - viewInfo.RC.LevelWidth, e.Bounds.Y, viewInfo.RC.LevelWidth, e.Bounds.Height);
 ```
 
+So, the last group indent bounds are calculated. Another group indent bounds can be calculated in the same manner, and shifted to the left by the level width. Apart from node indents, it's also necessary to change the appearance of node cells according to the node level. This can be done within the [TreeList.NodeCellStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.NodeCellStyle) event handler.
+
+Finally, set the [TreeList.TreeLineStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.TreeLineStyle) property `LineStyle.None` to hide the tree line.</p>
 
 
-```vb
-<newline/>
-Dim groupIndentRect As New Rectangle(e.Bounds.Right - viewInfo.RC.LevelWidth, e.Bounds.Y, viewInfo.RC.LevelWidth, e.Bounds.Height)<newline/>
-
-```
-
-<p>So, the last group indent bounds are calculated. Another group indent bounds can be calculated in the same manner, and shifted to the left by the level width.</p><p>Apart from node indents, it's also necessary to change the appearance of node cells, according to the node level. This can be done within the <a href="http://documentation.devexpress.com/#WindowsForms/DevExpressXtraTreeListTreeList_NodeCellStyletopic">TreeList.NodeCellStyle</a> event handler.</p><p>Finally, the <a href="http://documentation.devexpress.com/#WindowsForms/DevExpressXtraTreeListTreeList_TreeLineStyletopic">TreeList.TreeLineStyle</a> property should be set to LineStyle.None, to hide the tree line.</p>
-
-<br/>
 
 
