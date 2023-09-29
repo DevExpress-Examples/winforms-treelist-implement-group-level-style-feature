@@ -19,7 +19,7 @@ Rectangle groupIndentRect = new Rectangle(e.Bounds.Right - viewInfo.RC.LevelWidt
 
 So, the last group indent bounds are calculated. Another group indent bounds can be calculated in the same manner, and shifted to the left by the level width. Apart from node indents, it's also necessary to change the appearance of node cells according to the node level. This can be done within the [TreeList.NodeCellStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.NodeCellStyle) event handler.
 
-Finally, set the [TreeList.TreeLineStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.TreeLineStyle) property `LineStyle.None` to hide the tree line.</p>
+Finally, set the [TreeList.TreeLineStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.TreeLineStyle) property to `LineStyle.None` to hide the tree line.</p>
 
 
 
