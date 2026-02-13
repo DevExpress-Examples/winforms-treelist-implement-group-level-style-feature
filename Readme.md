@@ -31,7 +31,7 @@ The WinForms Data Grid allows you to specify custom styles for group rows and co
   ```
 * Set the [TreeList.TreeLineStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.TreeLineStyle) property to `LineStyle.None` to hide tree lines.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-treelist-implement-group-level-style-feature&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-treelist-implement-group-level-style-feature&~~~was_helpful=no)
 
