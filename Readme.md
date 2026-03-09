@@ -9,7 +9,7 @@
 
 The WinForms Data Grid allows you to specify custom styles for group rows and corresponding indents by handling the [GridView.GroupLevelStyle](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Grid.GridView.GroupLevelStyle) event. This example demonstrates how to implement this feature in the WinForms TreeList control.
 
-![](https://raw.githubusercontent.com/DevExpress-Examples/how-to-implement-the-group-level-style-feature-in-the-treelist-e2368/18.1.3%2B/media/winforms-treelist-level-indents.png)
+![WinForms TreeList - Implement the Group Level Style feature](media/winforms-treelist-level-indents.png)
 
 * Use the [TreeList.ViewInfo](https://docs.devexpress.com/WindowsForms/DevExpress.XtraTreeList.TreeList.ViewInfo) property to obtain information required to calculate bounds of group indents.
 * Use the `TreeListViewInfo.RC.LevelWidth` property to get the width of a group indent to properly divide the node indent into groups.
@@ -37,3 +37,4 @@ The WinForms Data Grid allows you to specify custom styles for group rows and co
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
